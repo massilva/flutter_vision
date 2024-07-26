@@ -12,6 +12,7 @@ import com.vladih.computer_vision.flutter_vision.models.Yolo;
 import com.vladih.computer_vision.flutter_vision.models.Yolov8;
 import com.vladih.computer_vision.flutter_vision.models.Yolov5;
 import com.vladih.computer_vision.flutter_vision.models.Yolov8Seg;
+import com.vladih.computer_vision.flutter_vision.models.Yolov9;
 import com.vladih.computer_vision.flutter_vision.utils.utils;
 
 import org.opencv.android.OpenCVLoader;
@@ -205,9 +206,20 @@ public class FlutterVisionPlugin implements FlutterPlugin, MethodCallHandler {
                         rotation);
                 break;
             }
-
             case "yolov8seg": {
                 yolo_model = new Yolov8Seg(
+                        context,
+                        model,
+                        is_asset,
+                        num_threads,
+                        quantization,
+                        use_gpu,
+                        label_path,
+                        rotation);
+                break;
+            }
+             case "yolov9": {
+                yolo_model = new Yolov9(
                         context,
                         model,
                         is_asset,
